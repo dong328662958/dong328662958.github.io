@@ -53,15 +53,15 @@
 
 
 
-<meta name="description" content="不是名人,也没用名言,瞎弄,纯属娱乐.">
+<meta name="description" content="ge ge .">
 <meta property="og:type" content="website">
 <meta property="og:title" content="老董的博客">
 <meta property="og:url" content="http://dong328662958.github.io/index.html">
 <meta property="og:site_name" content="老董的博客">
-<meta property="og:description" content="不是名人,也没用名言,瞎弄,纯属娱乐.">
+<meta property="og:description" content="ge ge .">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="老董的博客">
-<meta name="twitter:description" content="不是名人,也没用名言,瞎弄,纯属娱乐.">
+<meta name="twitter:description" content="ge ge .">
 
 
 
@@ -292,72 +292,17 @@
         
           <span itemprop="articleBody">
             
-              <blockquote>
-<p>以下基于友盟多渠道打包为例:</p>
-</blockquote>
-<h3 id="u5728application_u4E2D_u914D_u7F6Emeta-data"><a href="#u5728application_u4E2D_u914D_u7F6Emeta-data" class="headerlink" title="在application中配置meta-data"></a>在application中配置meta-data</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="type">application</span>&gt;</span><br><span class="line">       &lt;meta-data</span><br><span class="line">           android:<span class="property">name</span>=<span class="string">"UMENG_CHANNEL"</span></span><br><span class="line">           android:value=<span class="string">"$&#123;UMENG_CHANNEL_VALUE&#125;"</span> /&gt;			</span><br><span class="line"> &lt;/<span class="type">application</span>&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="u914D_u7F6E_u9879_u76EE_u4E2D_u7684_build-gradle_u6587_u4EF6_3A"><a href="#u914D_u7F6E_u9879_u76EE_u4E2D_u7684_build-gradle_u6587_u4EF6_3A" class="headerlink" title="配置项目中的 build.gradle文件:"></a>配置项目中的 build.gradle文件:</h3><pre><code>android {       
-   //签名信息. app根目录下,与libs同级
-    signingConfigs {
-        myConfig {
-            storeFile file(&quot;appkey.keystore&quot;)
-            storePassword &quot;====&quot;
-            keyAlias &quot;====&quot;
-            keyPassword &quot;====&quot;
-        }
-    }
-
-
-    flavors()//调用flavors方法
-
-    buildTypes {
-        release {
-            signingConfig signingConfigs.myConfig
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;
-
-            //自定义生成的apk名称,默认为工程名
-            //如果不需要,可以注释掉
-            //以下,输出为 dfy1.0_baidu.apk
-            applicationVariants.all { variant -&gt;
-                variant.outputs.each { output -&gt;
-                    def outputFile = output.outputFile
-                    if (outputFile != null &amp;&amp; outputFile.name.endsWith(&apos;.apk&apos;)) {
-                        def fileName = &quot;dfy${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk&quot;
-                        output.outputFile = new File(outputFile.parent, fileName)
-                    }
-                }
-            }
-
-      }
-    }
-
-}
-
-定义flavors方法,该方法与android{}同级
-    def flavors(){
-        def path = &quot;./channels.txt&quot;
-        file(path).eachLine {
-            line -&gt;
-                if (!line.startsWith(&quot;//&quot;)){
-                    android.productFlavors.create(line,{
-                        manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
-                    })
-                }
-        }
-    }
-</code></pre><h3 id="u5728_u5DE5_u7A0B_u8DDF_u76EE_u5F55_u4E0B_2C_u4E0Esrc_u540C_u7EA7_2C_u521B_u5EFA_channels-txt_2C_u5199_u5165channel_u503C_2C_u6CE8_u610F_u524D_u9762_u4E0D_u80FD_u7559_u7A7A_u683C"><a href="#u5728_u5DE5_u7A0B_u8DDF_u76EE_u5F55_u4E0B_2C_u4E0Esrc_u540C_u7EA7_2C_u521B_u5EFA_channels-txt_2C_u5199_u5165channel_u503C_2C_u6CE8_u610F_u524D_u9762_u4E0D_u80FD_u7559_u7A7A_u683C" class="headerlink" title="在工程跟目录下,与src同级,创建 channels.txt,写入channel值,注意前面不能留空格."></a>在工程跟目录下,与src同级,创建 channels.txt,写入channel值,注意前面不能留空格.</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">360</span></span><br><span class="line"><span class="keyword">baidu</span><br><span class="line"></span><span class="label">xiaomi</span></span><br></pre></td></tr></table></figure>
-<h2 id="u6BCF_u4E00_u4E2A_u6E20_u9053_u5BF9_u5E94_u5404_u81EA_u7684_u5E94_u7528_u540D"><a href="#u6BCF_u4E00_u4E2A_u6E20_u9053_u5BF9_u5E94_u5404_u81EA_u7684_u5E94_u7528_u540D" class="headerlink" title="每一个渠道对应各自的应用名"></a>每一个渠道对应各自的应用名</h2><p>需求:<br>    在多渠道打包时,有很多渠道.如果每个渠道的应用名不一样,可以使用以下方法:.比如:<br>    小米渠道下载的应用名叫 mi_app ,<br>    baidu渠道下载的应用名为 baidu_app.</p>
-<blockquote>
-<p>实现方式:</p>
-<h3 id="u5728AndroidManifest_u4E2D_u6DFB_u52A0_u5C5E_u6027_uFF1A"><a href="#u5728AndroidManifest_u4E2D_u6DFB_u52A0_u5C5E_u6027_uFF1A" class="headerlink" title="在AndroidManifest中<application>添加属性："></a>在AndroidManifest中<application>添加属性：</application></h3><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">android:</span>label=<span class="string">"$&#123;APP_NAME&#125;"</span></span><br><span class="line"><span class="label">tools:</span>replace=<span class="string">"android:label"</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="gradle_u4E2D_u914D_u7F6E"><a href="#gradle_u4E2D_u914D_u7F6E" class="headerlink" title="gradle中配置"></a>gradle中配置</h3><blockquote>
-<p>多渠道打包配置channel值时,加入 APP_NAME: “mi or baidu “+name.</p>
-</blockquote>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">manifestPlaceholders = [</span><br><span class="line">                       APP_NAME: <span class="string">"中文"</span>+<span class="property">name</span>,</span><br><span class="line">                       UMENG_CHANNEL_VALUE: <span class="property">name</span> ]</span><br></pre></td></tr></table></figure>
             
+以下基于友盟多渠道打包为例:
+
+在application中配置meta-data12345&lt;application&gt;       &lt;meta-data           android:name="UMENG_CHANNEL"           android:value="
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/02/11/Android多渠道打包和每一个渠道对应各自的应用名/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -457,151 +402,16 @@
         
           <span itemprop="articleBody">
             
-              <p>Android开发中总少不了与文字打交道,以下为TextView与EditText的属性列表,</p>
-<h3 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h3><p>android:lineSpacingExtra<br>        设置行间距 10。</p>
-<p>android:lineSpacingMultiplier<br>    设置行间距的倍数。如”1.2”<br>android:textScaleX<br>    设置文字之间间隔，默认为1.0f。参见TextView的截图。    </p>
-<p>android:textSize<br>    设置文字大小，推荐度量单位”sp”，如”15sp”    </p>
-<p>android:textStyle<br>    设置字形[bold(粗体) 0, italic(斜体) 1,  bolditalic(又粗又斜) 2] 可以设置一个或多个，用“|”隔开    </p>
-<p>android:autoLink  可选值(none/web/email/phone/map/all)。<br>    设置是否当文本为URL链接/email/电话号码/map时，文本显示为可点击的链接。<br>    这里只有在同时设置text时才自动识别链接，后来输入的无法自动识别。</p>
-<p>android:capitalize<br>    设置英文字母大写类型<br>    设置如下值：<br>    sentences仅第一个字母大写；<br>    words每一个单词首字母大小，用空格区分单词；<br>    characters每一个英文字母都大写。<br>    在模拟器上用PC键盘直接输入可以出效果，但是用软键盘无效果。</p>
-<p>android:cursorVisible<br>    设定光标为显示/隐藏，默认显示。<br>    如果设置false，即使选中了也不显示光标栏。</p>
-<p>android:digits<br>    设置允许输入哪些字符。<br>    如“1234567890.+-*/%\n()”</p>
-<p>android:editable<br>    设置是否可编辑。仍然可以获取光标，但是无法输入。</p>
-<p>android:ellipsize<br>    设置当文字过长时,该控件 该如何显示。<br>    有如下值设置：”start”—–省略号显示在开头；”end”——省略号<br>    显示在结尾；”middle”—-省略号显示在中间；<br>    ”marquee” ——以跑马灯 的方式显示(动画 横向移动)</p>
-<p>android:marqueeRepeatLimit<br>    在ellipsize指定marquee的情况下，设置重复滚动的次数，<br>    当设置为marquee_forever时表示无限次。</p>
-<p>android:gravity<br>    设置文本位置，如设置成“center”，文本将居中显示。</p>
-<p>android:hint<br>    Text为空时显示的文字提示信息，<br>    可通过textColorHint设置提示信息的颜色。</p>
-<p>android:imeOptions<br>    设置软键盘的Enter键。<br>    有如下值可设置：<br>    normal，<br>    actionUnspecified，<br>    actionNone，<br>    actionGo，<br>    actionSearch，<br>    actionSend，<br>    actionNext，<br>    actionDone，<br>    flagNoExtractUi，<br>    flagNoAccessoryAction，<br>    flagNoEnterAction。<br>    可用’|’设置多个。</p>
-<p>android:imeActionId<br>    设置IME动作ID，在onEditorAction中捕获判断进行逻辑操作。</p>
-<p>android:includeFontPadding<br>    设置文本是否包含顶部和底部额外空白，默认为true。</p>
-<p>android:inputType<br>    设置文本的类型，用于帮助输入法显示合适的键盘类型。<br>    有如下值设置：<br>    none、<br>    text、<br>    textCapCharacters字母大小、<br>    textCapWords单词首字母大小、<br>    textCapSentences仅第一个字母大小、<br>    textAutoCorrect、textAutoComplete自动完成、<br>    textMultiLine多行输入、<br>    textImeMultiLine输入法多行（如果支持）、<br>    textNoSuggestions不提示、<br>    textEmailAddress电子邮件地址、textEmailSubject邮 件主题、<br>    textShortMessage短信息（会多一个表情按钮出来)<br>    textLongMessage长讯息<br>    textPersonName人名、<br>    textPostalAddress地址、<br>    textPassword密码、<br>    textVisiblePassword可见密码、<br>    textWebEditText作为网页表单的文本、<br>    textFilte文本筛选过滤、<br>    textPhonetic拼音输入、<br>    numberSigned有符 号数字格式、<br>    numberDecimal可带小数点的浮点格式、<br>    phone电话号码、<br>    datetime时间日期、<br>    date日期、time时间。</p>
-<p>android:ems<br>    设置TextView的宽度为N个字符的宽度。</p>
-<p>android:maxEms<br>    设置TextView的宽度为最长为N个字符的宽度。与ems同时使用时覆盖ems选项。</p>
-<p>android:minEms<br>    设置TextView的宽度为最短为N个字符的宽度。与ems同时使用时覆盖ems选项。</p>
-<p>android:maxLength<br>    限制输入字符数。如设置为5，那么仅可以输入5个汉字/数字/英文字母。</p>
-<p>android:lines<br>    设置文本的行数，设置两行就显示两行，即使第二行没有数据。    </p>
-<p>android:maxLines<br>    设置文本的最大显示行数，与width或者layout_width结合使用，超出部分自动换行，超出行数将不显示。    </p>
-<p>android:minLines<br>    设置文本的最小行数，与lines类似。    </p>
-<p>android:linksClickable<br>    设置链接是否点击连接，即使设置了autoLink。    </p>
-<p>android:numeric<br>    如果被设置，该TextView有一个数字输入法。有如下值设置：integer正整数、signed带符号整数、decimal带小数点浮点数。    </p>
-<p>android:password<br>    以小点”.”显示文本    </p>
-<p>android:phoneNumber<br>    设置为电话号码的输入方式。    </p>
-<p>android:privateImeOptions<br>    提供额外的输入法选项(字符串格式)。依据输入法而决定是否提供。</p>
-<p>android:scrollHorizontally<br>    设置文本超出TextView的宽度的情况下，是否出现横拉条。</p>
-<p>android:selectAllOnFocus<br>    如果文本是可选择的，让他获取焦点而不是将光标移动为文本的开始位置或者末尾位置。TextView中设置后无效果</p>
-<p>android:shadowColor<br>    指定文本阴影的颜色，需要与shadowRadius一起使用.</p>
-<p>android:shadowDx<br>    设置阴影横向坐标开始位置。</p>
-<p>android:shadowDy<br>    设置阴影纵向坐标开始位置</p>
-<p>android:shadowRadius<br>    设置阴影的半径。设置为0.1就变成字体的颜色了，一般设置为3.0的效果比较好。</p>
-<p>android:singleLine<br>    设置单行显示。如果和layout<em>width一起使用，当文本不能全部显示时，<br>    后面用“…”来表示。如 android:text=”test</em> singleLine  “<br>    android:singleLine=”true” android:layout_width=”20dp”将只显示“t…”。<br>    如果不设置singleLine或者设置为false，文本将自动换行</p>
-<p>android:text<br>    设置显示文本.</p>
-<p>android:textAppearance<br>    设置文字外观。如“?android:attr/textAppearanceLargeInverse<br>    ”这里引用的是系统自带的一个外观，？表示系统是否有这种外观，否则使用默认的外观。可设置的值如 下：<br>    textAppearanceButton/textAppearanceInverse/textAppearanceLarge 、<br>    /textAppearanceLargeInverse/textAppearanceMedium<br>    /textAppearanceMediumInverse/textAppearanceSmall<br>    /textAppearanceSmallInverse</p>
-<p>android:textColor<br>    设置文本颜色</p>
-<p>android:textColorHighlight<br>    被选中文字的底色，默认为蓝色    </p>
-<p>android:textColorHint<br>    设置提示信息文字的颜色，默认为灰色。与hint一起使用。</p>
-<p>android:textColorLink<br>    文字链接的颜色.    </p>
-<p>android:width<br>    设置文本区域的宽度，支持度量单位：px(像素)/dp/sp/in/mm(毫米)，与layout_width的区别看这里 。    </p>
-<p>android:height<br>    设置文本区域的高度，支持度量单位：px(像素)/dp/sp/in/mm(毫米)    </p>
-<p>android:maxHeight<br>    设置文本区域的最大高度    </p>
-<p>android:minHeight<br>    设置文本区域的最小高度    </p>
-<p>android:maxWidth<br>    设置文本区域的最大宽度    </p>
-<p>android:minWidth<br>    设置文本区域的最小宽度    </p>
-<h3 id="EditText_u4E0ETextView_u5927_u90E8_u5206_u5C5E_u6027_u7528_u6CD5_u76F8_u540C"><a href="#EditText_u4E0ETextView_u5927_u90E8_u5206_u5C5E_u6027_u7528_u6CD5_u76F8_u540C" class="headerlink" title="EditText与TextView大部分属性用法相同."></a>EditText与TextView大部分属性用法相同.</h3><p>  可以参考以下例子:    </p>
-<pre><code>android:gray=&quot;top&quot; //多行中指针在第一行第一位置
-et.setSelection(et.length());//调整光标到最后一行Android:autoText // 自动拼写帮助
-Android:capitalize // 首字母大写
-Android:digits // 设置只接受某些数字
-Android ： singleLine // 是否单行或者多行，回车是离开文本框还是文本框增加新行
-Android ： numeric // 只接受数字
-Android ： password // 密码
-Android ： phoneNumber // 输入电话号码
-Android ： editable // 是否可编辑
-Android:autoLink=”all” // 设置文本超链接样式 当点击网址时，跳向该网址
-android:password=&quot;true&quot; //设置只能输入密码 
-android:textColor = &quot;#ff8c00&quot;//字体颜色 
-android:textStyle=&quot;bold&quot;//字体，bold, italic, bolditalic 
-android:textSize=&quot;20dip&quot;//大小 
-android:capitalize = &quot;characters&quot;//以大写字母写 
-android:textAlign=&quot;center&quot;//EditText没有这个属性，但TextView有 
-android:textColorHighlight=&quot;#cccccc&quot;//被选中文字的底色，默认为蓝色 
-android:textColorHint=&quot;#ffff00&quot;//设置提示信息文字的颜色，默认为灰色 
-android:textScaleX=&quot;1.5&quot;//控制字与字之间的间距 
-android:typeface=&quot;monospace&quot;//字型，normal, sans, serif, monospace 
-android:background=&quot;@null&quot;//空间背景，这里没有，指透明 
-android:layout_weight=&quot;1&quot;//权重 在控制控   件显示的大小时蛮有用的。 
-android:textAppearance=&quot;?android:attr/textAppearanceLargeInverse&quot;//文字外观，
-这里引用的是系统自带的一个外观，？表示系统是否有这种外观，否则使用默认的外观。
-
-android:autoLink设置是否当文本为URL链接/email/电话号码/map时，文本显示为可点击的链接。可选值(none/web/email/phone/map/all)
-
-android:autoText如果设置，将自动执行输入值的拼写纠正。此处无效果，在显示输入法并输入的时候起作用。
-
-也就是说getText后可调用append方法设置文本内容。spannable 则可在给定的字符区域使用样式
-
-android:cursorVisible设定光标为显示/隐藏，默认显示。
-android:digits设置允许输入哪些字符。如“1234567890.+-*/% ()”
-android:drawableBottom在text的下方输出一个drawable。如果指定一个颜色的话会把text的背景设为该颜色，并且同时和background使用时覆盖后者。
-
-android:drawableLeft在text的左边输出一个drawable。
-
-android:drawablePadding设置text与drawable(图片)的间隔，与drawableLeft、drawableRight、drawableTop、drawableBottom一起使用，可设置为负数，单独使用没有效果。　　　　
-android:drawableRight在text的右边输出一个drawable。
-android:drawableTop在text的正上方输出一个drawable。
-android:ellipsize设置当文字过长时,该控件该如何显示。有如下值设置：”start”—?省略号显示在开头;”end”——省略号显示在结尾;”middle”—-省略号显示在中间;”marquee” ——以跑马灯的方式显示(动画横向移动)
-android:freezesText设置保存文本的内容以及光标的位置。
-android:gravity设置文本位置，如设置成“center”，文本将居中显示。
-android:hintText为空时显示的文字提示信息，可通过textColorHint设置提示信息的颜色。此属性在EditView中使用，但是这里也可以用。
-android:imeOptions附加功能，设置右下角IME动作与编辑框相关的动作，如actionDone右下角将显示一个“完成”，而不设置默认是一个回车符号。这个在EditView中再详细说明，此处无用。
-android:imeActionId设置IME动作ID。在EditView再做说明，可以先看这篇帖子：这里。
-android:imeActionLabel设置IME动作标签。在EditView再做说明。
-android:includeFontPadding设置文本是否包含顶部和底部额外空白，默认为true。
-android:inputMethod为文本指定输入法，需要完全限定名(完整的包名)。例如：com.google.android.inputmethod.pinyin，但是这里报错找不到。
-android:inputType设置文本的类型，用于帮助输入法显示合适的键盘类型。在EditView中再详细说明，这里无效果。
-android:linksClickable设置链接是否点击连接，即使设置了autoLink。
-android:marqueeRepeatLimit在ellipsize指定marquee的情况下，设置重复滚动的次数，当设置为marquee_forever时表示无限次。
-android:ems设置TextView的宽度为N个字符的宽度。这里测试为一个汉字字符宽度，如图：　　    　　    　　
-android:maxEms设置TextView的宽度为最长为N个字符的宽度。与ems同时使用时覆盖ems选项。
-android:minEms设置TextView的宽度为最短为N个字符的宽度。与ems同时使用时覆盖ems选项。
-android:maxLength限制显示的文本长度，超出部分不显示。
-android:lines设置文本的行数，设置两行就显示两行，即使第二行没有数据。
-android:maxLines设置文本的最大显示行数，与width或者layout_width结合使用，超出部分自动换行，超出行数将不显示。
-android:minLines设置文本的最小行数，与lines类似。
-android:lineSpacingExtra设置行间距。
-android:lineSpacingMultiplier设置行间距的倍数。如”1.2”
-android:numeric如果被设置，该TextView有一个数字输入法。此处无用，设置后唯一效果是TextView有点击效果，此属性在EdtiView将详细说明。
-android:password以小点”.”显示文本
-android:phoneNumber设置为电话号码的输入方式。
-android:privateImeOptions设置输入法选项，此处无用，在EditText将进一步讨论。
-android:scrollHorizontally设置文本超出TextView的宽度的情况下，是否出现横拉条。
-android:selectAllOnFocus如果文本是可选择的，让他获取焦点而不是将光标移动为文本的开始位置或者末尾位置。TextView中设置后无效果。
-android:shadowColor指定文本阴影的颜色，需要与shadowRadius一起使用。效果：　　
-android:shadowDx设置阴影横向坐标开始位置。
-android:shadowDy设置阴影纵向坐标开始位置。
-android:shadowRadius设置阴影的半径。设置为0.1就变成字体的颜色了，一般设置为3.0的效果比较好。
-android:singleLine设置单行显示。如果和layout_width一起使用，当文本不能全部显示时，后面用“…”来表示。如 android:text=&quot;test_ singleLine &quot; android:singleLine=&quot;true&quot; android:layout_width=&quot;20dp&quot;将只显示“t…”。如果不设置singleLine或者设置为false，文本将自动换行
-android:text设置显示文本.
-android:shadowDx设置阴影横向坐标开始位置。
-android:shadowDy设置阴影纵向坐标开始位置。
-android:shadowRadius设置阴影的半径。设置为0.1就变成字体的颜色了，一般设置为3.0的效果比较好。
-android:singleLine设置单行显示。如果和layout_width一起使用，当文本不能全部显示时，后面用“…”来表示。如 android:text=&quot;test_ singleLine &quot; android:singleLine=&quot;true&quot; android:layout_width=&quot;20dp&quot;将只显示“t…”。如果不设置singleLine或者设置为false，文本将自动换行
-android:text设置显示文本.
-android:textSize设置文字大小，推荐度量单位”sp”，如”15sp”
-android:textStyle设置字形[bold(粗体) 0, italic(斜体) 1, bolditalic(又粗又斜) 2] 可以设置一个或多个，用“|”隔开
-android:typeface设置文本字体，必须是以下常量值之一：normal 0, sans 1, serif 2, monospace(等宽字体) 3]
-android:height设置文本区域的高度，支持度量单位：px(像素)/dp/sp/in/mm(毫米)
-android:maxHeight设置文本区域的最大高度
-android:minHeight设置文本区域的最小高度
-android:width设置文本区域的宽度，支持度量单位：px(像素)/dp/sp/in/mm(毫米)，与layout_width的区别看这里。
-android:maxWidth设置文本区域的最大宽度
-android:minWidth设置文本区域的最小宽度
-android:textAppearance设置文字外观。如“?android:attr/textAppearanceLargeInverse
-”这里引用的是系统自带的一个外观，?表示系统是否有这种外观，否则使用默认的外观。可设置的值如 下：textAppearanceButton/textAppearanceInverse/textAppearanceLarge /textAppearanceLargeInverse/textAppearanceMedium/textAppearanceMediumInverse/textAppearanceSmall/textAppearanceSmallInverse
-android:textAppearance设置文字外观。如“?android:attr/textAppearanceLargeInverse
-”这里引用的是系统自带的一个外观，?表示系统是否有这种外观，否则使用默认的外观。可设置的值如 下：textAppearanceButton/textAppearanceInverse/textAppearanceLarge /textAppearanceLargeInverse/textAppearanceMedium/textAppearanceMediumInverse/textAppearanceSmall/textAp    
-</code></pre><p>　　</p>
-
-            
+            Android开发中总少不了与文字打交道,以下为TextView与EditText的属性列表,
+EditTextandroid:lineSpacingExtra        设置行间距 10。
+android:lineSpacingMultiplier    设置行间距的倍数。如”1.2”andr
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/09/Android开发中TextView和EditText属性总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -701,15 +511,20 @@ android:textAppearance设置文字外观。如“?android:attr/textAppearanceLar
         
           <span itemprop="articleBody">
             
-              <h1 id="u6298_u817E_u4E86_u8FD9_u4E48_u4E45_2C_u5148_u5199_u70B9_u4EC0_u4E48_u5427"><a href="#u6298_u817E_u4E86_u8FD9_u4E48_u4E45_2C_u5148_u5199_u70B9_u4EC0_u4E48_u5427" class="headerlink" title="折腾了这么久,先写点什么吧"></a>折腾了这么久,先写点什么吧</h1><pre><code>随便写点啥吧,反正没人看
-</code></pre><h3 id="u6765_u4E00_u5F20_u7F8E_u5973_u56FE_u7247"><a href="#u6765_u4E00_u5F20_u7F8E_u5973_u56FE_u7247" class="headerlink" title="来一张美女图片"></a>来一张美女图片</h3><p><img src="http://cdn.duitang.com/uploads/item/201501/14/20150114185352_Zrfcs.jpeg" alt="美女"></p>
-<h2 id="u56FE_u7247_u4E0D_u591F_u6211_u8FD8_u8981_u770B_u89C6_u9891"><a href="#u56FE_u7247_u4E0D_u591F_u6211_u8FD8_u8981_u770B_u89C6_u9891" class="headerlink" title="图片不够我还要看视频"></a>图片不够我还要看视频</h2><p>那就看小春子吧 &lt;相依为命&gt;</p>
-<iframe height="498" width="510" src="http://player.youku.com/embed/XMTI5MzE4ODMzMg==" frameborder="0" allowfullscreen></iframe>
+            折腾了这么久,先写点什么吧随便写点啥吧,反正没人看
+来一张美女图片
+图片不够我还要看视频那就看小春子吧 &lt;相依为命&gt;
 
-<h2 id="u5DEE_u4E0D_u591A_u4E86_2C_u5728_u6765_u5F20_u706B_u5F71_u5427"><a href="#u5DEE_u4E0D_u591A_u4E86_2C_u5728_u6765_u5F20_u706B_u5F71_u5427" class="headerlink" title="差不多了,在来张火影吧."></a>差不多了,在来张火影吧.</h2><p> <img src="http://i-7.vcimg.com/trim/d1ffb217994bb0ba5d09cc4b263cf9f9123065/trim.jpg" alt="火影"></p>
-<h1 id="THE_END_21"><a href="#THE_END_21" class="headerlink" title="THE END!"></a>THE END!</h1>
+
+差不多了,在来张火影吧. 
+THE END!
             
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/02/第一篇/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -809,18 +624,14 @@ android:textAppearance设置文字外观。如“?android:attr/textAppearanceLar
         
           <span itemprop="articleBody">
             
-              <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-            
+            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/01/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -877,7 +688,7 @@ android:textAppearance设置文字外观。如“?android:attr/textAppearanceLar
           <img class="site-author-image" src="/images/avatar.png" alt="mike.dong" itemprop="image"/>
           <p class="site-author-name" itemprop="name">mike.dong</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">不是名人,也没用名言,瞎弄,纯属娱乐.</p>
+        <p class="site-description motion-element" itemprop="description">ge ge .</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
