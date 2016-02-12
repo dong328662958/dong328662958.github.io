@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="TextView," />
 
 
 
@@ -53,15 +53,22 @@
 
 
 
-<meta name="description" content="不是名人,也没用名言,瞎弄,纯属娱乐.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="老董的博客">
-<meta property="og:url" content="http://dong328662958.github.io/index.html">
+<meta name="description" content="Android开发中总少不了与文字打交道,以下为TextView与EditText的属性列表,
+EditTextandroid:lineSpacingExtra        设置行间距 10。
+android:lineSpacingMultiplier    设置行间距的倍数。如”1.2”android:textScaleX    设置文字之间间隔，默认为1.0f。参见TextView的截图。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android开发中TextView和EditText属性总结">
+<meta property="og:url" content="http://dong328662958.github.io/2015/10/09/Android开发中TextView和EditText属性总结/index.html">
 <meta property="og:site_name" content="老董的博客">
-<meta property="og:description" content="不是名人,也没用名言,瞎弄,纯属娱乐.">
+<meta property="og:description" content="Android开发中总少不了与文字打交道,以下为TextView与EditText的属性列表,
+EditTextandroid:lineSpacingExtra        设置行间距 10。
+android:lineSpacingMultiplier    设置行间距的倍数。如”1.2”android:textScaleX    设置文字之间间隔，默认为1.0f。参见TextView的截图。">
+<meta property="og:updated_time" content="2016-02-11T09:21:15.260Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="老董的博客">
-<meta name="twitter:description" content="不是名人,也没用名言,瞎弄,纯属娱乐.">
+<meta name="twitter:title" content="Android开发中TextView和EditText属性总结">
+<meta name="twitter:description" content="Android开发中总少不了与文字打交道,以下为TextView与EditText的属性列表,
+EditTextandroid:lineSpacingExtra        设置行间距 10。
+android:lineSpacingMultiplier    设置行间距的倍数。如”1.2”android:textScaleX    设置文字之间间隔，默认为1.0f。参见TextView的截图。">
 
 
 
@@ -73,7 +80,7 @@
   };
 </script>
 
-  <title> 老董的博客 </title>
+  <title> Android开发中TextView和EditText属性总结 | 老董的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -94,9 +101,7 @@
 
 
 
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -203,15 +208,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           
-  <section id="posts" class="posts-expand">
 
+  <div id="posts" class="posts-expand">
     
-
-    
-    
-
-    
-      
 
   
   
@@ -231,175 +230,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/02/11/Android多渠道打包和每一个渠道对应各自的应用名/" itemprop="url">
-                  Android多渠道打包和每一个渠道对应各自的应用名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-02-11T21:37:55+08:00" content="2016-02-11">
-              2016-02-11
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/11/Android多渠道打包和每一个渠道对应各自的应用名/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/11/Android多渠道打包和每一个渠道对应各自的应用名/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <blockquote>
-<p>以下基于友盟多渠道打包为例:</p>
-</blockquote>
-<h3 id="u5728application_u4E2D_u914D_u7F6Emeta-data"><a href="#u5728application_u4E2D_u914D_u7F6Emeta-data" class="headerlink" title="在application中配置meta-data"></a>在application中配置meta-data</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="type">application</span>&gt;</span><br><span class="line">       &lt;meta-data</span><br><span class="line">           android:<span class="property">name</span>=<span class="string">"UMENG_CHANNEL"</span></span><br><span class="line">           android:value=<span class="string">"$&#123;UMENG_CHANNEL_VALUE&#125;"</span> /&gt;			</span><br><span class="line"> &lt;/<span class="type">application</span>&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="u914D_u7F6E_u9879_u76EE_u4E2D_u7684_build-gradle_u6587_u4EF6_3A"><a href="#u914D_u7F6E_u9879_u76EE_u4E2D_u7684_build-gradle_u6587_u4EF6_3A" class="headerlink" title="配置项目中的 build.gradle文件:"></a>配置项目中的 build.gradle文件:</h3><pre><code>android {       
-   //签名信息. app根目录下,与libs同级
-    signingConfigs {
-        myConfig {
-            storeFile file(&quot;appkey.keystore&quot;)
-            storePassword &quot;====&quot;
-            keyAlias &quot;====&quot;
-            keyPassword &quot;====&quot;
-        }
-    }
-
-
-    flavors()//调用flavors方法
-
-    buildTypes {
-        release {
-            signingConfig signingConfigs.myConfig
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile(&apos;proguard-android.txt&apos;), &apos;proguard-rules.pro&apos;
-
-            //自定义生成的apk名称,默认为工程名
-            //如果不需要,可以注释掉
-            //以下,输出为 dfy1.0_baidu.apk
-            applicationVariants.all { variant -&gt;
-                variant.outputs.each { output -&gt;
-                    def outputFile = output.outputFile
-                    if (outputFile != null &amp;&amp; outputFile.name.endsWith(&apos;.apk&apos;)) {
-                        def fileName = &quot;dfy${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk&quot;
-                        output.outputFile = new File(outputFile.parent, fileName)
-                    }
-                }
-            }
-
-      }
-    }
-
-}
-
-定义flavors方法,该方法与android{}同级
-    def flavors(){
-        def path = &quot;./channels.txt&quot;
-        file(path).eachLine {
-            line -&gt;
-                if (!line.startsWith(&quot;//&quot;)){
-                    android.productFlavors.create(line,{
-                        manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
-                    })
-                }
-        }
-    }
-</code></pre><h3 id="u5728_u5DE5_u7A0B_u8DDF_u76EE_u5F55_u4E0B_2C_u4E0Esrc_u540C_u7EA7_2C_u521B_u5EFA_channels-txt_2C_u5199_u5165channel_u503C_2C_u6CE8_u610F_u524D_u9762_u4E0D_u80FD_u7559_u7A7A_u683C"><a href="#u5728_u5DE5_u7A0B_u8DDF_u76EE_u5F55_u4E0B_2C_u4E0Esrc_u540C_u7EA7_2C_u521B_u5EFA_channels-txt_2C_u5199_u5165channel_u503C_2C_u6CE8_u610F_u524D_u9762_u4E0D_u80FD_u7559_u7A7A_u683C" class="headerlink" title="在工程跟目录下,与src同级,创建 channels.txt,写入channel值,注意前面不能留空格."></a>在工程跟目录下,与src同级,创建 channels.txt,写入channel值,注意前面不能留空格.</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">360</span></span><br><span class="line"><span class="keyword">baidu</span><br><span class="line"></span><span class="label">xiaomi</span></span><br></pre></td></tr></table></figure>
-<h2 id="u6BCF_u4E00_u4E2A_u6E20_u9053_u5BF9_u5E94_u5404_u81EA_u7684_u5E94_u7528_u540D"><a href="#u6BCF_u4E00_u4E2A_u6E20_u9053_u5BF9_u5E94_u5404_u81EA_u7684_u5E94_u7528_u540D" class="headerlink" title="每一个渠道对应各自的应用名"></a>每一个渠道对应各自的应用名</h2><p>需求:<br>    在多渠道打包时,有很多渠道.如果每个渠道的应用名不一样,可以使用以下方法:.比如:<br>    小米渠道下载的应用名叫 mi_app ,<br>    baidu渠道下载的应用名为 baidu_app.</p>
-<blockquote>
-<p>实现方式:</p>
-<h3 id="u5728AndroidManifest_u4E2D_u6DFB_u52A0_u5C5E_u6027_uFF1A"><a href="#u5728AndroidManifest_u4E2D_u6DFB_u52A0_u5C5E_u6027_uFF1A" class="headerlink" title="在AndroidManifest中<application>添加属性："></a>在AndroidManifest中<application>添加属性：</application></h3><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">android:</span>label=<span class="string">"$&#123;APP_NAME&#125;"</span></span><br><span class="line"><span class="label">tools:</span>replace=<span class="string">"android:label"</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="gradle_u4E2D_u914D_u7F6E"><a href="#gradle_u4E2D_u914D_u7F6E" class="headerlink" title="gradle中配置"></a>gradle中配置</h3><blockquote>
-<p>多渠道打包配置channel值时,加入 APP_NAME: “mi or baidu “+name.</p>
-</blockquote>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">manifestPlaceholders = [</span><br><span class="line">                       APP_NAME: <span class="string">"中文"</span>+<span class="property">name</span>,</span><br><span class="line">                       UMENG_CHANNEL_VALUE: <span class="property">name</span> ]</span><br></pre></td></tr></table></figure>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/09/Android开发中TextView和EditText属性总结/" itemprop="url">
-                  Android开发中TextView和EditText属性总结
-                </a>
+                Android开发中TextView和EditText属性总结
               
             
           </h1>
@@ -454,10 +285,7 @@
       
 
       
-        
-          <span itemprop="articleBody">
-            
-              <p>Android开发中总少不了与文字打交道,以下为TextView与EditText的属性列表,</p>
+        <span itemprop="articleBody"><p>Android开发中总少不了与文字打交道,以下为TextView与EditText的属性列表,</p>
 <h3 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h3><p>android:lineSpacingExtra<br>        设置行间距 10。</p>
 <p>android:lineSpacingMultiplier<br>    设置行间距的倍数。如”1.2”<br>android:textScaleX<br>    设置文字之间间隔，默认为1.0f。参见TextView的截图。    </p>
 <p>android:textSize<br>    设置文字大小，推荐度量单位”sp”，如”15sp”    </p>
@@ -599,250 +427,69 @@ android:textAppearance设置文字外观。如“?android:attr/textAppearanceLar
 android:textAppearance设置文字外观。如“?android:attr/textAppearanceLargeInverse
 ”这里引用的是系统自带的一个外观，?表示系统是否有这种外观，否则使用默认的外观。可设置的值如 下：textAppearanceButton/textAppearanceInverse/textAppearanceLarge /textAppearanceLargeInverse/textAppearanceMedium/textAppearanceMediumInverse/textAppearanceSmall/textAp    
 </code></pre><p>　　</p>
-
-            
-          </span>
-        
+</span>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/02/第一篇/" itemprop="url">
-                  买不了吃亏,买不了上当
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-02T00:04:08+08:00" content="2015-10-02">
-              2015-10-02
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
+            <a href="/tags/TextView/" rel="tag">#TextView</a>
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/02/第一篇/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/02/第一篇/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
       
 
       
-        
-          <span itemprop="articleBody">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <h1 id="u6298_u817E_u4E86_u8FD9_u4E48_u4E45_2C_u5148_u5199_u70B9_u4EC0_u4E48_u5427"><a href="#u6298_u817E_u4E86_u8FD9_u4E48_u4E45_2C_u5148_u5199_u70B9_u4EC0_u4E48_u5427" class="headerlink" title="折腾了这么久,先写点什么吧"></a>折腾了这么久,先写点什么吧</h1><pre><code>随便写点啥吧,反正没人看
-</code></pre><h3 id="u6765_u4E00_u5F20_u7F8E_u5973_u56FE_u7247"><a href="#u6765_u4E00_u5F20_u7F8E_u5973_u56FE_u7247" class="headerlink" title="来一张美女图片"></a>来一张美女图片</h3><p><img src="http://cdn.duitang.com/uploads/item/201501/14/20150114185352_Zrfcs.jpeg" alt="美女"></p>
-<h2 id="u56FE_u7247_u4E0D_u591F_u6211_u8FD8_u8981_u770B_u89C6_u9891"><a href="#u56FE_u7247_u4E0D_u591F_u6211_u8FD8_u8981_u770B_u89C6_u9891" class="headerlink" title="图片不够我还要看视频"></a>图片不够我还要看视频</h2><p>那就看小春子吧 &lt;相依为命&gt;</p>
-<iframe height="498" width="510" src="http://player.youku.com/embed/XMTI5MzE4ODMzMg==" frameborder="0" allowfullscreen></iframe>
-
-<h2 id="u5DEE_u4E0D_u591A_u4E86_2C_u5728_u6765_u5F20_u706B_u5F71_u5427"><a href="#u5DEE_u4E0D_u591A_u4E86_2C_u5728_u6765_u5F20_u706B_u5F71_u5427" class="headerlink" title="差不多了,在来张火影吧."></a>差不多了,在来张火影吧.</h2><p> <img src="http://i-7.vcimg.com/trim/d1ffb217994bb0ba5d09cc4b263cf9f9123065/trim.jpg" alt="火影"></p>
-<h1 id="THE_END_21"><a href="#THE_END_21" class="headerlink" title="THE END!"></a>THE END!</h1>
+              <a href="/2015/10/02/第一篇/" rel="next" title="买不了吃亏,买不了上当">
+                <i class="fa fa-chevron-left"></i> 买不了吃亏,买不了上当
+              </a>
             
-          </span>
-        
-      
-    </div>
+          </div>
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/02/11/Android多渠道打包和每一个渠道对应各自的应用名/" rel="prev" title="Android多渠道打包和每一个渠道对应各自的应用名">
+                Android多渠道打包和每一个渠道对应各自的应用名 <i class="fa fa-chevron-right"></i>
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2015/10/01/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-01T00:04:08+08:00" content="2015-10-01">
-              2015-10-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/01/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
       
 
       
-        
-          <span itemprop="articleBody">
-            
-              <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
 
-  </section>
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/10/09/Android开发中TextView和EditText属性总结/"
+     data-title="Android开发中TextView和EditText属性总结"
+     data-content=""
+     data-url="http://dong328662958.github.io/2015/10/09/Android开发中TextView和EditText属性总结/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
         </div>
@@ -851,6 +498,14 @@ android:textAppearance设置文字外观。如“?android:attr/textAppearanceLar
 
 
         
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/10/09/Android开发中TextView和EditText属性总结/"
+           data-title="Android开发中TextView和EditText属性总结" data-url="http://dong328662958.github.io/2015/10/09/Android开发中TextView和EditText属性总结/">
+      </div>
+    
+  </div>
+
 
       </div>
 
@@ -871,8 +526,17 @@ android:textAppearance设置文字外观。如“?android:attr/textAppearanceLar
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" src="/images/avatar.png" alt="mike.dong" itemprop="image"/>
           <p class="site-author-name" itemprop="name">mike.dong</p>
@@ -956,6 +620,23 @@ android:textAppearance设置文字外观。如“?android:attr/textAppearanceLar
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText"><span class="nav-number">1.</span> <span class="nav-text">EditText</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EditText_u4E0ETextView_u5927_u90E8_u5206_u5C5E_u6027_u7528_u6CD5_u76F8_u540C"><span class="nav-number">2.</span> <span class="nav-text">EditText与TextView大部分属性用法相同.</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
@@ -1058,6 +739,167 @@ document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
 
   <script type="text/javascript" src="/js/bootstrap.js"></script>
 
